@@ -135,7 +135,7 @@ def send_confirmation_code(username, email):
     user = get_object_or_404(User, email=email, username=username)
     confirmation_code = default_token_generator.make_token(user)
     user.confirmation_code = confirmation_code
-    MESSAGE = (
+    message = (
         f'Здравствуйте, {username}!'
         f'Ваш код подтверждения: {user.confirmation_code}'
     )
