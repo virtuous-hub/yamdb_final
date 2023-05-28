@@ -140,7 +140,7 @@ def send_confirmation_code(username, email):
         f'Ваш код подтверждения: {user.confirmation_code}'
     )
     send_mail(
-        message=MESSAGE,
+        message=message,
         subject='Confirmation code',
         recipient_list=[user.email],
         from_email=settings.DEFAULT_FROM_EMAIL,
