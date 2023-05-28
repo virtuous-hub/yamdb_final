@@ -48,7 +48,7 @@ jobs:
         with:
           context: ./api_yamdb
           push: true
-          tags: virtuous431/yamdb_final:latest
+          tags: virtuous431/api_yamdb:latest
 
   deploy:
     runs-on: ubuntu-latest
