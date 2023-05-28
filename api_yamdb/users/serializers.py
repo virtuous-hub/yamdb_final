@@ -1,7 +1,6 @@
+from api.validation import username_is_valid
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-
-from api.validation import username_is_valid
 from users.models import User
 
 

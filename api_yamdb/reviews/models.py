@@ -1,12 +1,8 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
-
-from reviews.constants import (LENGHT_NAME,
-                               LENGHT_SLUG,
-                               SYMBOLS_IN_TITLE,
-                               MIN_VALUE,
-                               MAX_VALUE)
+from reviews.constants import (LENGHT_NAME, LENGHT_SLUG, MAX_VALUE, MIN_VALUE,
+                               SYMBOLS_IN_TITLE)
 from users.models import User
 
 

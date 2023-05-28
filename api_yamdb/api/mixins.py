@@ -1,8 +1,6 @@
-from rest_framework import mixins, viewsets
-from rest_framework import filters
-from rest_framework.pagination import PageNumberPagination
-
 from api.permissions import IsAdminUser, ReadOnly
+from rest_framework import filters, mixins, viewsets
+from rest_framework.pagination import PageNumberPagination
 
 
 class CategoryGenreViewSet(

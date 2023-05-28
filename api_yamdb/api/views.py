@@ -1,36 +1,28 @@
+from http import HTTPStatus
+
+from api.filters import TitleFilter
+from api.mixins import CategoryGenreViewSet
+from api.permissions import AuthorOrStaff, IsAdminUser, ReadOnly
+from api.serializers import (CategorySerializer, CommentSerilizer,
+                             GenreSerializer, ReviewSerializer,
+                             TitleReadSerializer, TitleSerializer,
+                             TokenSerializer)
 from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
-from rest_framework_simplejwt.tokens import RefreshToken
 from django.core.mail import send_mail
-from rest_framework import status
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
-
-from http import HTTPStatus
-from rest_framework.generics import CreateAPIView
-from rest_framework.views import APIView
-from rest_framework import permissions, viewsets
+from rest_framework import permissions, status, viewsets
 from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import AccessToken
-from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.filters import SearchFilter
-
-from api.mixins import CategoryGenreViewSet
-from api.permissions import IsAdminUser, AuthorOrStaff, ReadOnly
-from api.filters import TitleFilter
-from api.serializers import (
-    CategorySerializer,
-    GenreSerializer,
-    TitleReadSerializer,
-    TitleSerializer,
-    ReviewSerializer,
-    CommentSerilizer,
-    TokenSerializer,
-)
-from reviews.models import Category, Genre, Title, Review, Comment
-from users.serializers import UserSerializer, CreateUserSerializer
+from rest_framework.generics import CreateAPIView
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
+from reviews.models import Category, Comment, Genre, Review, Title
 from users.models import User
+from users.serializers import CreateUserSerializer, UserSerializer
 
 
 class GenreViewSet(CategoryGenreViewSet):
